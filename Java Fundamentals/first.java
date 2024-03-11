@@ -36,7 +36,7 @@ public class first {
         System.out.println(ch);
 
         // How to interact from the user in java
-
+        
         Scanner input = new Scanner(System.in);
 
 		System.out.println("Give Inputs in each Datatype\n");
