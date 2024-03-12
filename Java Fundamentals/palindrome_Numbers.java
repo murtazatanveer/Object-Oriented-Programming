@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Armstrong_Numbers {
+public class palindrome_Numbers {
 
     public static void main(String [] str){
 
@@ -38,6 +38,8 @@ public class Armstrong_Numbers {
 
 
 			}
+
+			
 
 
     
