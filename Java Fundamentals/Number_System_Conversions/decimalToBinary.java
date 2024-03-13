@@ -1,3 +1,4 @@
+package Number_System_Conversions;
 import java.util.Scanner;
 public class decimalToBinary{
 
@@ -32,6 +33,8 @@ public class decimalToBinary{
 
 			binaryNum = "1" + binaryNum;
 		    System.out.println("\nAfter converting "+decimalNum+" into Binary Number : "+binaryNum);
+
+            input.close();
 
 
 		}

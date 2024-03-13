@@ -1,3 +1,4 @@
+package Number_System_Conversions;
 import java.util.Scanner;
 
 public class binaryToDecimal{
@@ -21,7 +22,7 @@ public class binaryToDecimal{
             }
 
             System.out.println("\nAfter converting "+binaryNumCopy+" into Decimal Number : "+decimalNum);
-
+            input.close();
 
 		}
 

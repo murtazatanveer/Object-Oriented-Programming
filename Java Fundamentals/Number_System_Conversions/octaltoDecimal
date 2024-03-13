@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class octalToDecimal{
+
+	public static void main(String [] str){
+
+		Scanner inp = new Scanner(System.in);
+
+		System.out.print("Enter Octal Number : ");
+
+		int octalNum = inp.nextInt();
+
+		int decimalNum=0,power=0,octalNumCopy = octalNum;
+
+		while(octalNum>0){
+
+			decimalNum += ((octalNum%10) * (Math.pow(8,power)));
+
+			octalNum /= 10;
+
+			power++;
+
+
+			}
+
+			 System.out.println("\nAfter converting "+octalNumCopy+" into Decimal Number : "+decimalNum);
+
+			 inp.close();
+
+		}
+
+	}

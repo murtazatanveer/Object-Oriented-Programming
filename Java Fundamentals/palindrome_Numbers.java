@@ -35,7 +35,7 @@ public class palindrome_Numbers {
 
 					rev = 0;
 					lastNum = 0;
-
+					input.close();
 
 			}
 

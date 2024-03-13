@@ -69,7 +69,7 @@ public class first {
 
 		System.out.println("int : "+num+"\nlong : "+bigNum+"\nfloat : "+decimalNum+"\ndouble : "+longDecimalNum+"\nch : "+ch+"\nString : "+name);
 
-        
+        input.close();
    
     }
 
