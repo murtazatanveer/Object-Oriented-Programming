@@ -1,6 +1,6 @@
 package Arrays;
 
-public class arrayReverse{
+public class reverseArray{
 
 	public static void main(String [] str){
 
