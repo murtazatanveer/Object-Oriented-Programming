@@ -1,11 +1,21 @@
 package Arrays;
 
 import java.util.Scanner;
-public class array{
+public class arrays{
 
 	public static void main(String [] str){
+ 
+		int [] numbers = {10,17,25,100,13,10,200,0,-100,-1000,200};
 
-		int [] numbers = new int[5];
+		makeArray();
+
+		maxElement(numbers);
+
+		}
+
+		public static void makeArray(){
+
+			int [] numbers = new int[5];
 
 		Scanner inp = new Scanner(System.in);
 
@@ -25,7 +35,20 @@ public class array{
 
             inp.close();
 
+          }
 
-		}
+		  public static int maxElement(int [] arr){
+
+			int max = arr[0];
+
+			for(int i = 1;i<arr.length;i++){
+
+				if(arr[i]>=max){  max =arr[i];}
+
+				}
+
+				return max;
+
+			}
 
 	}
