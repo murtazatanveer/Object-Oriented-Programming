@@ -7,13 +7,19 @@ public class arrays{
  
 		//int [] numbers = {10,17,25,100,13,10,200,0,-100,-1000,200};
 
-		//System.err.println(maxElement(numbers));
-		//makeArray();
-		System.out.println(reverse_string("java.programming"));
+		// System.err.println(maxElement(numbers));
+		// makeArray();
+		// System.out.println(reverse_string("java.programming"));
+
+		int [] arr = {25,10,13,8,17,11};
+
+        sortArray(arr);
+
+        for(int i=0;i<arr.length;i++){System.out.print(arr[i]+" ");}
 		
 		}
 
-		public static void makeArray(){
+	public static void makeArray(){
 
 			int [] numbers = new int[5];
 
@@ -37,7 +43,7 @@ public class arrays{
 
           }
 
-		  public static int maxElement(int [] arr){
+	public static int maxElement(int [] arr){
 
 			int max = arr[0];
 
@@ -51,7 +57,7 @@ public class arrays{
 
 			}
 
-			public static String reverse_string(String str){
+	public static String reverse_string(String str){
 
 				char [] alphabets = str.toCharArray();
 	
@@ -68,5 +74,29 @@ public class arrays{
 					return new String (alphabets);
 	
 				}
+
+	public static int [] sortArray(int [] arr){
+
+					int count=0;
+			
+					int [] copyArr = new int[arr.length];
+			
+					for(int i=0;i<arr.length;i++){
+						for(int j=0;j<arr.length;j++){
+			
+							if(arr[i]>arr[j]){count++;}
+			
+							}
+			
+							copyArr[count]=arr[i];
+							count=0;
+			
+						}
+			
+						for(int i=0;i<copyArr.length;i++){arr[i]=copyArr[i];}
+			
+						return arr;
+			
+					}
 
 	}

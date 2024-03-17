@@ -46,12 +46,6 @@ public class questionNo6{
 			}
 
 
-		for(int i=0;i<result.length;i++){
-
-			if(location==i){result[i]=elementInsert;}
-
-			}
-
 			System.out.print("\nResultant array is : ");
 
 			for(int i=0;i<result.length;i++){

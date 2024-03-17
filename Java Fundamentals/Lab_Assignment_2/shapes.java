@@ -239,19 +239,19 @@ public class shapes{
 			}
 
 			System.out.println("\n");
-						        // Shape : 13
+		 // Shape : 13
 
-										  					for(int i=1;i<=size;i++){
-										  						for(int j=1;j<=size;j++){
+		for(int i=1;i<=size;i++){
+			for(int j=1;j<=size;j++){
 
-										  			                 if((i==size)|| (j==1)|| (i==j)){
-										  							System.out.print(" *");}
+		     if((i==size)|| (j==1)|| (i==j)){
+				System.out.print(" *");}
 
-										  							else{System.out.print("  ");}
+			else{System.out.print("  ");}
 
-										  							}
+			}
 
-										  							System.out.println();
+			System.out.println();
 
 
 			}
@@ -259,19 +259,19 @@ public class shapes{
 
 
 			System.out.println("\n");
-									        // Shape : 14
+	 // Shape : 14
 
-													  					for(int i=1;i<=size;i++){
-													  						for(int j=1;j<=size;j++){
+		for(int i=1;i<=size;i++){
+	      	for(int j=1;j<=size;j++){
 
-													  			                 if((i==1)|| (j==size)|| (i==j)){
-													  							System.out.print(" *");}
+			 if((i==1)|| (j==size)|| (i==j)){
+				System.out.print(" *");}
 
-													  							else{System.out.print("  ");}
+				else{System.out.print("  ");}
 
-													  							}
+					}
 
-													  							System.out.println();
+				System.out.println();
 
 
 			}
@@ -279,89 +279,89 @@ public class shapes{
 
 System.out.println("\n");
 
-								  					// Shape : 15
+    // Shape : 15
 
-								  					for(int i=1;i<=size;i++){
-								  						for(int j=1;j<=size;j++){
+			for(int i=1;i<=size;i++){
+			    for(int j=1;j<=size;j++){
 
-								  			                 if((j==(size+1)-i) || (i==1) ||(j==1)){
-								  							System.out.print(" *");}
+			    if((j==(size+1)-i) || (i==1) ||(j==1)){
+						System.out.print(" *");}
 
-								  							else{System.out.print("  ");}
+						else{System.out.print("  ");}
 
-								  							}
+							}
 
-								  							System.out.println();
-
-
-			}
-
-			System.out.println("\n");
-
-											  					// Shape : 16
-
-											  					for(int i=1;i<=size;i++){
-											  						for(int j=1;j<=size;j++){
-
-											  			                 if((j==(size+1)-i) || (i==size) ||(j==size)){
-											  							System.out.print(" *");}
-
-											  							else{System.out.print("  ");}
-
-											  							}
-
-											  							System.out.println();
+						System.out.println();
 
 
 			}
 
 			System.out.println("\n");
 
-											// Shape : 17
+		// Shape : 16
 
-											for(int i=1;i<=(int)(size/2)+1;i++){
-											for(int j=1;j<=size;j++){
+		for(int i=1;i<=size;i++){
+			for(int j=1;j<=size;j++){
 
-											      if(j>=(((int)(size/2)+2)-i) && j<=((int)(size/2)+i)){
-														System.out.print("*");}
+			  if((j==(size+1)-i) || (i==size) ||(j==size)){
+				    System.out.print(" *");}
 
-													else{System.out.print(" ");}
+				else{System.out.print("  ");}
 
-											}System.out.println();}
+								}
 
-											for(int i=((int)(size/2)+1)-1;i>=1;i--){
-												for(int j=1;j<=size;j++){
+				System.out.println();
 
-												      if(j>=(((int)(size/2)+2)-i) && j<=((int)(size/2)+i)){
-																System.out.print("*");}
 
-												else{System.out.print(" ");}
+			}
 
-											}System.out.println();}
+			System.out.println("\n");
+
+        // Shape : 17
+
+		for(int i=1;i<=(int)(size/2)+1;i++){
+		     for(int j=1;j<=size;j++){
+
+			      if(j>=(((int)(size/2)+2)-i) && j<=((int)(size/2)+i)){
+						System.out.print("*");}
+
+		     		else{System.out.print(" ");}
+
+					     }System.out.println();}
+
+		for(int i=((int)(size/2)+1)-1;i>=1;i--){
+				for(int j=1;j<=size;j++){
+
+				      if(j>=(((int)(size/2)+2)-i) && j<=((int)(size/2)+i)){
+				 			System.out.print("*");}
+
+					else{System.out.print(" ");}
+
+				}System.out.println();}
 
 		System.out.println("\n");
 
-													// Shape : 18
+		// Shape : 18
 
-													for(int i=1;i<=(int)(size/2)+1;i++){
-													for(int j=1;j<=size;j++){
+					for(int i=1;i<=(int)(size/2)+1;i++){
+						for(int j=1;j<=size;j++){
 
-													      if(j>=(((int)(size/2)+2)-i) && j<=((int)(size/2)+i)){
-																System.out.print("*");}
+					      if(j>=(((int)(size/2)+2)-i) && j<=((int)(size/2)+i)){
+				                 System.out.print("*");}
 
-															else{System.out.print("+");}
+								else{System.out.print("+");}
 
-													}System.out.println();}
+								}System.out.println();}
 
-													for(int i=((int)(size/2)+1)-1;i>=1;i--){
-														for(int j=1;j<=size;j++){
+				for(int i=((int)(size/2)+1)-1;i>=1;i--){
+						for(int j=1;j<=size;j++){
 
-														      if(j>=(((int)(size/2)+2)-i) && j<=((int)(size/2)+i)){
-																		System.out.print("*");}
+					      if(j>=(((int)(size/2)+2)-i) && j<=((int)(size/2)+i)){
+							System.out.print("*");}
 
-														else{System.out.print("+");}
+					else{System.out.print("+");}
 
-													}System.out.println();}
+						}System.out.println();}
 
 
 
