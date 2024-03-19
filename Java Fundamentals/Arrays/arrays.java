@@ -17,6 +17,8 @@ public class arrays{
 
 		// for(int i=0;i<arr.length;i++){System.out.print(arr[i]+" ");}
 
+		System.out.println(toUpperCase("hi i am murtaza tanveer"));
+
 	
 		}
 
@@ -155,5 +157,21 @@ public class arrays{
 			return evenNumbers;
 		
 			}
+
+
+		public static String toUpperCase(String str){
+
+				char [] alphabets = str.toCharArray();
+		
+				for(int i=0;i<alphabets.length;i++){
+		
+					if(alphabets[i]>=97 && alphabets[i]<=122){
+						alphabets[i] -= 32;
+						}
+		
+					}
+		
+					return new String(alphabets);
+		}
 
 	}
