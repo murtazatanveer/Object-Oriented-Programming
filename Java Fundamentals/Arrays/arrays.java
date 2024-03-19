@@ -11,12 +11,13 @@ public class arrays{
 		// makeArray();
 		// System.out.println(reverse_string("java.programming"));
 
-		int [] arr = {25,10,13,8,17,11};
+		// int [] arr = {25,10,13,8,17,11,56,23,98,23,46,10,17};
 
-        sortArray(arr);
+		// rotateArray(arr,9);
 
-        for(int i=0;i<arr.length;i++){System.out.print(arr[i]+" ");}
-		
+		// for(int i=0;i<arr.length;i++){System.out.print(arr[i]+" ");}
+
+	
 		}
 
 	public static void makeArray(){
@@ -98,5 +99,32 @@ public class arrays{
 						return arr;
 			
 					}
+
+	public static int[] rotateArray(int [] arr,int distance){
+
+				int [] copyArr = new int[arr.length];
+				int j = 0,count=0;
+			
+				for(int i=distance;i<arr.length;i++){
+			
+						copyArr[j] = arr[i];
+						j++;
+						count++;
+			
+							}
+			
+				j=0;
+			
+				for(int i=count;i<arr.length;i++){
+			
+							copyArr[i]=arr[j];
+							j++;
+						}
+			
+				for(int i=0;i<arr.length;i++){arr[i]=copyArr[i];}
+			
+				return arr;
+			
+			}
 
 	}
