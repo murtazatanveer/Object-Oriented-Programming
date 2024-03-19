@@ -127,4 +127,33 @@ public class arrays{
 			
 			}
 
+
+	public static int [] even_numbers_at_even_indexes(int [] arr){
+
+			int count = 0;
+	
+			for(int i=0;i<arr.length;i++){
+		
+				if((i%2 == 0) && (arr[i]%2 == 0)){count++;}
+		
+			}
+		
+			if(count == 0){return arr;}
+		
+			int [] evenNumbers = new int[count];
+			int j=0;
+		
+			for(int i=0;i<arr.length;i++){
+		
+				if((i%2 == 0) && (arr[i]%2 == 0)){
+					evenNumbers[j]=arr[i];
+					j++;
+				}
+		
+			}
+		
+			return evenNumbers;
+		
+			}
+
 	}
