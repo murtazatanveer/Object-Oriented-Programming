@@ -1,4 +1,4 @@
-package Functions;
+package Methods;
 
 public class numberSystemConversions{
 
