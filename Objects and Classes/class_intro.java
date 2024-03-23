@@ -1,6 +1,6 @@
 class box{
 
-    int length;
+    int length=10;
     int width;
     int height;
 
