@@ -41,6 +41,26 @@ public class twoDArrays {
 				}
 
      }
+
+	 static int [][] transposeOfMatrix(int [][] matrix){
+
+		int r = matrix.length;
+		int c = matrix[0].length;
+		int copy[][] = new int[c][r];
+
+	 for(int i=0;i<r;i++){
+		 for(int j=0;j<c;j++){
+
+		 copy[j][i]=matrix[i][j];
+
+		 }
+
+
+	   }
+
+	   return copy;
+
+   }
     
 }
 
