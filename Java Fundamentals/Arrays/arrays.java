@@ -1,5 +1,6 @@
 package Arrays;
 
+import java.util.Arrays;
 import java.util.Scanner;
 public class arrays{
 
@@ -173,5 +174,53 @@ public class arrays{
 		
 					return new String(alphabets);
 		}
+
+		static void arrayFunctions(){
+
+             //Sorting array
+
+			int [] numbers = {10,60,28,98,56,13,85,27};
+
+			Arrays.sort(numbers);
+
+			for(int i=0;i<numbers.length;i++){
+
+				System.out.print(numbers[i]+"  ");
+
+				}
+
+			//Binary Search
+
+			int index = Arrays.binarySearch(numbers,56);
+
+				System.out.println("\n"+index);
+
+            //Is Arrays Equal
+
+			int []arr1 = {1,2,3,4,5};
+			int []arr2 = {1,2,3,4,5};
+
+			boolean result = Arrays.equals(arr1,arr2);
+
+			System.out.println(result);
+
+			//Filling Array
+
+			//Arrays.fill(numbers,50);
+			//System.out.println();
+			//for(int i=0;i<numbers.length;i++){System.out.print(numbers[i]+"  ");}
+
+            //Copying one array into another array
+
+            int []copy = Arrays.copyOf(numbers,numbers.length);
+
+            System.out.print("\n");
+			for(int i=0;i<numbers.length;i++){System.out.print(copy[i]+"  ");}
+
+			System.out.println("\nArray to String : "+Arrays.toString(numbers));
+
+            for(int i=0;i<numbers.length;i++){System.out.print(numbers[i]+"  ");}
+
+			}
 
 	}
