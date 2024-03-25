@@ -18,8 +18,8 @@ public class arrays{
 
 		// for(int i=0;i<arr.length;i++){System.out.print(arr[i]+" ");}
 
-		System.out.println(toUpperCase("hi i am murtaza tanveer"));
-
+		//System.out.println(toUpperCase("hi i am murtaza tanveer"));
+        //arrayFunctions();
 	
 		}
 

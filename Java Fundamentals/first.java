@@ -73,5 +73,78 @@ public class first {
    
     }
 
+    static void printHourGlass(){
+
+             int n=7;
+        
+            n = n%2==0 ? n+1 : n;
+        
+             int count=1;
+        
+            for(int i=n;i>=1;i--){
+                for(int j=1;j<=n;j++){
+        
+                     if(j>=i){
+        
+                            System.out.print(count+" ");
+                     if(!(count>=1&&count<=8)){
+                            if(count==9){
+        
+                                count=0;
+                                continue;
+        
+                            }else{
+                                count=9;
+                                continue;
+                        }
+                        }
+                            count++;
+        
+        
+        
+                            }else{
+                                System.out.print(" ");
+                                }
+        
+        
+                        }
+                        System.out.println();
+                    }
+        
+                    count=1;
+        
+                    for(int i=2;i<=n;i++){
+                        for(int j=1;j<=n;j++){
+        
+                                    if(j>=i){
+        
+                                        System.out.print(count+" ");
+                                 if(!(count>=1&&count<=8)){
+                                        if(count==9){
+        
+                                            count=0;
+                                            continue;
+        
+                                        }else{
+                                            count=9;
+                                            continue;
+                                    }
+                                    }
+                                        count++;
+        
+        
+        
+                                        }else{
+                                            System.out.print(" ");
+                                            }
+        
+        
+                                    }
+                                    System.out.println();
+                    }
+        
+                }
+        
+            }
+
     
-}
