@@ -20,6 +20,8 @@ public class arrays{
 
 		//System.out.println(toUpperCase("hi i am murtaza tanveer"));
         //arrayFunctions();
+
+		arrayFunctions();
 	
 		}
 
@@ -198,7 +200,7 @@ public class arrays{
             //Is Arrays Equal
 
 			int []arr1 = {1,2,3,4,5};
-			int []arr2 = {1,2,3,4,5};
+			int []arr2 = {4,7,2,9,6,5,8};
 
 			boolean result = Arrays.equals(arr1,arr2);
 
@@ -220,6 +222,9 @@ public class arrays{
 			System.out.println("\nArray to String : "+Arrays.toString(numbers));
 
             for(int i=0;i<numbers.length;i++){System.out.print(numbers[i]+"  ");}
+
+			Arrays.sort(arr2);
+			System.out.println(Arrays.toString(arr2));
 
 			}
 

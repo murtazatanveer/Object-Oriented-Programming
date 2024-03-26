@@ -5,6 +5,7 @@ public class first {
 
     public static void main(String[] str) {
 
+        printHourGlass();
         System.out.println("Welcome To Java");
 
        // Datatypes in Java
