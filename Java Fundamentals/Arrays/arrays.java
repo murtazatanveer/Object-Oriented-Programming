@@ -21,7 +21,14 @@ public class arrays{
 		//System.out.println(toUpperCase("hi i am murtaza tanveer"));
         //arrayFunctions();
 
-		arrayFunctions();
+		//arrayFunctions();
+
+		int [] numbers = {9,2,5,13,1,8,2,1,5,11,7,9};
+
+		int [] duplicateNumbers = duplicateNumbersArray(numbers);
+
+		System.out.println(Arrays.toString(duplicateNumbers));
+
 	
 		}
 
@@ -228,4 +235,33 @@ public class arrays{
 
 			}
 
+	static int [] duplicateNumbersArray(int []arr){
+
+		int count=0;
+		
+		for(int i=0;i<arr.length;i++){
+			for(int j = i+1;j<arr.length;j++){
+		
+				if(arr[i]==arr[j]){count++;}
+		
+					}
+				}
+		
+		int [] copy = new int[count];
+		int k=0;
+		
+		for(int i=0;i<arr.length;i++){
+			for(int j = i+1;j<arr.length;j++){
+		
+				if(arr[i]==arr[j]){
+					copy[k]=arr[i];
+				    k++;
+				 }
+		
+			}
+		}
+		
+		return copy;
+		
+				}
 	}
