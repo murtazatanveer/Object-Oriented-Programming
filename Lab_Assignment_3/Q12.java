@@ -36,7 +36,7 @@ public class Q12{
     
                  }else{
     
-                  System.out.println("\n"+arr[i]+" is Even");
+                  System.out.println("\n"+arr[i]+" is Odd");
                   oddCount++;
                 }
               }
