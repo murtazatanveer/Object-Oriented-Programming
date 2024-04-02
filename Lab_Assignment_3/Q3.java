@@ -25,6 +25,9 @@ public class Q3{
 		stu.rollNo = 105;
 
 		stu.display();
+	
 
 		}}
+
+	
 

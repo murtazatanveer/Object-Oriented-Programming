@@ -1,6 +1,6 @@
 package Lab_Assignment_3;
 
-class courseResult{
+ class courseResult{
 
 	String name;
 	String course;
