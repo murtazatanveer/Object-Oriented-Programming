@@ -27,7 +27,8 @@ public class constructors_in_inheritence{
 
 	public static void main(String [] str){
 
-		c obj = new c();
+		//c obj = new c();
+
 
 		}
 
