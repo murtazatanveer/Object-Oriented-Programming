@@ -31,7 +31,7 @@ class B extends A{
 		}
 
     @Override   
-	void print(){System.out.println("I am in b class");}
+	void  print(){System.out.println("I am in b class");}
     
     
 	void print(String s){System.out.println(s);}
