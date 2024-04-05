@@ -1,3 +1,4 @@
+package Assignment_no_1;
 import java.util.Scanner;
 class timber{
 

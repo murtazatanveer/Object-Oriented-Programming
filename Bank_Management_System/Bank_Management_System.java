@@ -1,4 +1,4 @@
-package Projects;
+package Bank_Management_System;
 
 import java.util.Scanner;
 class client{
@@ -239,12 +239,16 @@ public class Bank_Management_System{
 
 	  			 if(person[i]!=null && person[i].username.equals(username) && person[i].pass.equals(pass)){
 
-					 System.out.print("\nEnter Account Number : ");
-					 no=inp.nextInt();
+					System.out.print("\nEnter Account Number : ");
+					no=inp.nextInt();
 
-					 System.out.print("\nEnter Amount you want to Transfer : ");
-					  amount=inp.nextInt();
-                int j;
+					System.out.print("\nEnter Amount you want to Transfer : ");
+					amount=inp.nextInt();
+
+					if(amount>person[i].balance){System.out.println("\nERROR! Insufficient Balance for this Transaction\nYour current balance is " + person[i].balance);}
+               
+				else{ 
+						int j;
 				for(j=0;j<person.length;j++){
 
 	  			 if(person[j]!=null && person[j].accNo==no){
@@ -264,7 +268,7 @@ public class Bank_Management_System{
 
 					  }
 
-				   if(j==person.length){System.out.println("\nError! Incorrect Account Number");}
+				   if(j==person.length){System.out.println("\nError! Incorrect Account Number");}}
 
 					 return;
 					}
