@@ -30,10 +30,6 @@ public class Bank_Management_System{
 
     static Scanner inp = new Scanner(System.in);
 
-    static int amount;
-
-    static int entries=0;
-
 	static String u,p;
 
 	public static void main(String [] str){
@@ -150,6 +146,8 @@ public class Bank_Management_System{
 
 		 static void withdraw(String username, String pass) {
 
+			int amount;
+
 		       for (int i = 0; i < person.length; i++) {
 
 		           if (person[i] != null && person[i].username.equals(username) && person[i].pass.equals(pass)) {
@@ -177,7 +175,8 @@ public class Bank_Management_System{
    }
 
 	    static void deposit(String username , String pass){
-
+            
+			int amount;
 	           int i;
 	           for(i=0;i<person.length;i++){
 
@@ -202,6 +201,8 @@ public class Bank_Management_System{
        }
 
 		static void openAccount(){
+			
+			int entries=0;
 
             inp.nextLine();
 			System.out.print("\nEnter Your Name : ");
@@ -230,7 +231,8 @@ public class Bank_Management_System{
 			}
 
 		static void sendAmount(String username , String pass){
-
+          
+		  int amount;
 		  int no;
 		  int a;
 		  int i;
