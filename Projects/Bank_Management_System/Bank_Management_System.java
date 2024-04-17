@@ -1,4 +1,5 @@
-package Bank_Management_System;
+package Projects.Bank_Management_System;
+
 
 import java.util.Scanner;
 class client{

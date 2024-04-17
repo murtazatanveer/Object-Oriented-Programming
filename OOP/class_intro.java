@@ -48,6 +48,11 @@ public class class_intro{
 
         System.out.println("Volume : "+volume);
 
+        box []b = new box[30];
+
+        //for(int i=0;i<5;i++){b[i]=new box();}
+        System.out.println(b.length);
+
         }
 
     }

@@ -1,6 +1,6 @@
 package Lab_Assignment_4;
 
-class employee{
+ class employee{
 
 	int salary;
 

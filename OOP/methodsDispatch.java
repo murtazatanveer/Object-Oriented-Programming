@@ -7,7 +7,7 @@ class A{
 
 class B extends A{
 
-	void print(){System.out.println("Welcome to class B");}
+	void print(){System.out.println("I changes my class.\nWelcome to class B");}
 
 
 
@@ -18,12 +18,15 @@ class B extends A{
 public class methodsDispatch{
 	public static void main(String [] str){
 
-     A ob = new A();
-     ob.print();
+    //  A ob = new A();
+    //  ob.print();
     
-	 A ob2 = new A();
-	 ob2.print();
+	//  A ob2 = new A();
+	//  ob2.print();
 
+	 A ob3 = new B();
+
+	 ob3.print();
 		}
 	}
 
