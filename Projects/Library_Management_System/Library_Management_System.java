@@ -56,11 +56,10 @@ class student{
     int totalBooks=0;
     Scanner inp = new Scanner(System.in);
 
-    student(){
-        System.out.print("Set Your Name : ");
-        this.name=inp.nextLine();
-        System.out.print("\nSet Your ID : ");
-        this.id=inp.nextInt();
+    student(String name , int id){
+
+        this.name=name;
+        this.id=id;
 
     }
 
@@ -97,12 +96,18 @@ class student{
 
     void returnBook(library lib){
 
-        System.out.print("\nEnter Book ID : ");
+        System.out.print("\nEnter Book Name : ");
         String b = inp.nextLine();
 
         for(int i=0;i<totalBooks;i++){
             if(b.equals(books[i])){
                 lib.returningBooks(b);
+                books[i]=null;
+                
+                for (int j = i; j <totalBooks ; j++) {
+                    books[j]=books[j+1];
+                }
+                totalBooks--;
                 System.out.println("Book Returned Successfully!");
                 return;
             }
@@ -111,9 +116,21 @@ class student{
 
     }
 
+    void displayIssuedBooks(){
+        if(totalBooks==0){System.out.println("\nNo Books are Issued in Your Record");return;}
+
+        System.out.println("\nYour Issued Books are : ");
+
+        for (int i = 0; i < totalBooks; i++) {
+
+            System.out.println(i+1+". "+books[i]);
+
+        }
+    }
+
 }
 
-public class k {
+public class Library_Management_System {
 
     static Scanner inp = new Scanner(System.in);
     static String name;
@@ -123,6 +140,7 @@ public class k {
     static library lib = new library();
     static int owners=0;
     static int users=0;
+    static int s;
     public static void main(String[] args) {
 
         int choice;
@@ -183,9 +201,12 @@ public class k {
                 adExist();
                 break;
 
+                case 3:
+                System.out.println("Exitting.....");
+                break;
 
                 default:
-                System.out.println("Exitting.....");
+                System.out.println("Invalid Choice");
                 break;
             }
 
@@ -229,8 +250,12 @@ public class k {
                 lib.displayBooks();
                 break;
 
+                case 3:
+                System.out.println("\nExitting.....");
+                break;
+
                 default:
-                System.out.println("Exitting....");
+                System.out.println("Invalid Choice");
                 break;
 
             }
@@ -238,5 +263,98 @@ public class k {
         } while (ch!=3);
     }
 
-    static void student(){}
+    static void student(){
+
+        int choice;
+
+        do {
+
+			System.out.println("\n1. SignUp\n2. Login\n3. Exit");
+
+			System.out.print("\nChoice : ");
+            choice = inp.nextInt();
+
+            switch (choice) {
+
+                case 1:
+                input();
+                stu[users]=new student(name,id);
+                users++;
+                break;
+
+                case 2:
+                stuExist();
+                break;
+
+                case 3:
+                System.out.println("\nExitting.....");
+                break;
+
+                default:
+                System.out.println("Invalid Choice");
+                break;
+
+            }
+
+        }while(choice!=3);
+    }
+
+    static void stuExist(){
+
+        System.out.print("Enter Your ID : ");
+        int id = inp.nextInt();
+
+        for(s=0;s<owners;s++){
+            if(id==stu[s].id){
+
+                stuAccess();
+                return;
+            }
+        }
+
+        System.out.println("Given ID doesnot exist!");
+
+    }
+
+    static void stuAccess(){
+
+        System.out.println("\n\nLogin Successfully!");
+        int ch;
+
+         do {
+
+         System.out.println("\n\n1. Display Books.\n2. Issue Book.\n3. Return Book.\n4. Display Issued Books\n5. Exit.");
+         System.out.print("Choice : ");
+         ch = inp.nextInt();
+             switch (ch){
+
+                 case 1:
+                 lib.displayBooks();
+                 break;
+
+                 case 2:
+                 stu[s].issueBook(lib);
+                 break;
+
+                 case 3:
+                 stu[s].returnBook(lib);
+                 break;
+
+                 case 4:
+                 stu[s].displayIssuedBooks();
+                 break;
+
+                 case 5:
+                 System.out.println("\nExitting.....");
+                 break;
+
+                 default:
+                 System.out.println("Invalid Choice");
+                 break;
+
+             }
+
+         } while (ch!=5);
+
+    }
 }
