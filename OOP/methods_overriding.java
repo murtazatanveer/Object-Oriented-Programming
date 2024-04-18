@@ -26,8 +26,8 @@ class A{
 class B extends A{
 
     @Override
-	void print(int age){
-		System.out.println("My name is Murtaza.\nMy age is "+age+"\nI studied in Comsats");
+	void print(int a){
+		System.out.println("My name is Murtaza.\nMy age is "+a+"\nI studied in Comsats");
 		}
 
     @Override   
