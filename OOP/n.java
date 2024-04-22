@@ -7,9 +7,10 @@ abstract class A{
 
     abstract void greet();
     abstract void printJava();
+    
 }
 
-class B extends A{
+ abstract class B extends A{
 
     @Override
     void greet(){System.out.println("Good Evening");}
@@ -26,6 +27,8 @@ class C extends B{
     C(){
         System.out.println("I am C Class Constructor");
     }
+
+    void greet(){System.out.println("Good Evening.....");}
 
     void printC(){System.out.println("Hello I am C class");}
     void printJava(){System.out.println("Java Is Fun and Easy");}
@@ -51,20 +54,26 @@ abstract class D extends A{
 
 		}
 
-public class abstractClasses{
+public class n{
     public static void main(String[] args) {
 
-        C obj = new C();
+        //C obj = new C();
 
-        obj.printHelloWorld();
-        obj.greet();
-        obj.printJava();
+        // obj.printHelloWorld();
+        // obj.greet();
+        // obj.printJava();
 
-        E ob2 = new E();
-        ob2.printJava();
-        ob2.greet();
-        ob2.displayNumbers();
+        // E ob2 = new E();
+        // ob2.printJava();
+        // ob2.greet();
+        // ob2.displayNumbers();
 
+        A a = new C();
+
+         a.printHelloWorld();
+        // a.greet();
+        a.printJava();
+        a.greet();
     }
 
 }

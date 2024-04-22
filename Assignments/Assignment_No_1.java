@@ -204,12 +204,12 @@ public class Assignment_No_1{
 
               if (tree[i].kind.equals(kind)) {
                     tree[i].displayRecord();
-                    break;
+                    return;
                    }
 
            }
 
-           if(i==j){System.out.println("Error! Record does not exist for given kind.\n");}
+           System.out.println("Error! Record does not exist for given kind.\n");
 
         }
 
@@ -249,7 +249,7 @@ public class Assignment_No_1{
 					quantity = inp.nextInt();
 
 					 if(quantity > tree[i].quantity){
-						 System.out.println("Error! Quantity to be sold is less than Quantity on hand");
+						 System.out.println("Error! Quantity to be sold is more than Quantity on hand");
 						 }else{
 
 							 tree[i].quantity = tree[i].quantity - quantity;
