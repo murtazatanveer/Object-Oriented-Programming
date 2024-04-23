@@ -12,7 +12,7 @@ abstract class A{
 
  abstract class B extends A{
 
-    @Override
+    
     void greet(){System.out.println("Good Evening");}
 
     @Override
@@ -54,7 +54,7 @@ abstract class D extends A{
 
 		}
 
-public class n{
+public class Abstract_Classes_and_Methods{
     public static void main(String[] args) {
 
         //C obj = new C();
