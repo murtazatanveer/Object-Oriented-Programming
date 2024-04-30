@@ -4,13 +4,12 @@ class A{
 }
 
 class B extends A{
-	B(){System.out.println("A class Constructor");}
+	B(){System.out.println("B class Constructor");}
 	void hello(){System.out.println("Hello World.....");}
 }
 
 class C extends B{
-	C(){System.out.println("A class Constructor");}
-
+	C(){System.out.println("C class Constructor");}
 }
 
 public class inheritence2 {
@@ -19,6 +18,7 @@ public class inheritence2 {
 
 		A ob = new C();
 		ob.hello();
+		
 		
 	}
 }
