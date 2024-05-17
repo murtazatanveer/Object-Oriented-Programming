@@ -5,12 +5,108 @@ class admin{
 
     String name;
     int id;
-    Scanner inp = new Scanner(System.in);
 
-    admin(String name , int id){
+    Scanner inp = new Scanner(System.in);
+    static int owners=0; 
+
+    void get(String name , int id){
         this.name = name;
         this.id = id;
     }
+
+
+     void admin_(admin [] ad){
+
+		int choice,i;
+        String n;       
+
+        do {
+
+			System.out.println("\n1. SignUp\n2. Login\n3. Exit");
+
+			System.out.print("\nChoice : ");
+            choice = inp.nextInt();
+
+            switch (choice) {
+
+                case 1:
+                
+        inp.nextLine();
+        System.out.print("\n\nEnter Your Name : ");
+        n=inp.nextLine();
+        System.out.print("Enter Your ID : ");
+        i=inp.nextInt();
+
+                ad[owners]=new admin();
+                ad[owners].get(n, i);
+                owners++;
+                break;
+
+                case 2:
+                adExist(ad);
+                break;
+
+                case 3:
+                System.out.println("Exitting.....");
+                break;
+
+                default:
+                System.out.println("Invalid Choice");
+                break;
+            }
+
+        } while (choice!=3);
+    }
+
+     void adExist(admin [] ad){
+
+        System.out.print("Enter Your ID : ");
+        int id = inp.nextInt();
+        int i;
+
+        for(i=0;i<owners;i++){
+            if(id==ad[i].id){
+
+                adAccess();
+                return;
+            }
+        }
+
+        System.out.println("Given ID doesnot exist!");
+
+    }
+
+     void adAccess(){
+
+        System.out.println("\n\nLogin Successfully!");
+        int ch;
+         do {
+ 
+         System.out.println("\n1. Add New Books.\n2. Display Books.\n3. Exit.");
+         System.out.print("Choice : ");
+         ch = inp.nextInt();
+             switch (ch){
+ 
+                 case 1:
+                 library.lib.addBooks();
+                 break;
+ 
+                 case 2:
+                 library.lib.displayBooks();
+                 break;
+ 
+                 case 3:
+                 System.out.println("\nExitting.....");
+                 break;
+ 
+                 default:
+                 System.out.println("Invalid Choice");
+                 break;
+ 
+             }
+ 
+         } while (ch!=3);
+     }
 
 }
 
@@ -20,6 +116,8 @@ class library{
     String [] books=new String[30];
     int []booksId=new int[30];
     int totalBooks = 0;
+
+    static library lib = new library();
 
     void displayBooks(){
         if(totalBooks==0){System.out.println("No Books are Available.");return;}
@@ -54,9 +152,13 @@ class student{
     int id;
     String []books = new String[30];
     int totalBooks=0;
-    Scanner inp = new Scanner(System.in);
 
-    student(String name , int id){
+
+    Scanner inp = new Scanner(System.in);
+    static int users=0;
+    
+
+    void get(String name , int id){
 
         this.name=name;
         this.id=id;
@@ -128,145 +230,12 @@ class student{
         }
     }
 
-}
-
-public class Library_Management_System {
-
-    static Scanner inp = new Scanner(System.in);
-    static String name;
-    static int id;
-    static admin []ad = new admin[15];
-    static student []stu = new student[15];
-    static library lib = new library();
-    static int owners=0;
-    static int users=0;
-    static int s;
-    public static void main(String[] args) {
+     void student_(student [] stu){
 
         int choice;
-        do{
-            System.out.print("\n1. Admin\n2. Student\n3. Exit\n\nChoice : ");
-            choice=inp.nextInt();
-
-            switch (choice) {
-
-                case 1:
-                admin();
-                break;
-
-                case 2:
-                student();
-                break;
-
-                case 3:
-                System.out.println("Exitting....");
-                break;
-
-                default:
-                System.out.println("Invalid Choice!");
-
-            }
-
-        }while(choice!=3);
-    }
-
-    static void input(){
-		inp.nextLine();
-        System.out.print("\n\nEnter Your Name : ");
-        name=inp.nextLine();
-        System.out.print("Enter Your ID : ");
-        id=inp.nextInt();
-    }
-
-    static void admin(){
-
-		int choice;
-
-        do {
-
-			System.out.println("\n1. SignUp\n2. Login\n3. Exit");
-
-			System.out.print("\nChoice : ");
-            choice = inp.nextInt();
-
-            switch (choice) {
-
-                case 1:
-                input();
-                ad[owners]=new admin(name,id);
-                owners++;
-                break;
-
-                case 2:
-                adExist();
-                break;
-
-                case 3:
-                System.out.println("Exitting.....");
-                break;
-
-                default:
-                System.out.println("Invalid Choice");
-                break;
-            }
-
-        } while (choice!=3);
-    }
-
-    static void adExist(){
-
-        System.out.print("Enter Your ID : ");
-        int id = inp.nextInt();
+        String n;
         int i;
 
-        for(i=0;i<owners;i++){
-            if(id==ad[i].id){
-
-                adAccess();
-                return;
-            }
-        }
-
-        System.out.println("Given ID doesnot exist!");
-
-    }
-
-    static void adAccess(){
-
-       System.out.println("\n\nLogin Successfully!");
-       int ch;
-        do {
-
-		System.out.println("\n1. Add New Books.\n2. Display Books.\n3. Exit.");
-	    System.out.print("Choice : ");
-        ch = inp.nextInt();
-            switch (ch){
-
-                case 1:
-                lib.addBooks();
-                break;
-
-                case 2:
-                lib.displayBooks();
-                break;
-
-                case 3:
-                System.out.println("\nExitting.....");
-                break;
-
-                default:
-                System.out.println("Invalid Choice");
-                break;
-
-            }
-
-        } while (ch!=3);
-    }
-
-    static void student(){
-
-        int choice;
-
         do {
 
 			System.out.println("\n1. SignUp\n2. Login\n3. Exit");
@@ -277,13 +246,20 @@ public class Library_Management_System {
             switch (choice) {
 
                 case 1:
-                input();
-                stu[users]=new student(name,id);
+
+        inp.nextLine();
+        System.out.print("\n\nEnter Your Name : ");
+        n=inp.nextLine();
+        System.out.print("Enter Your ID : ");
+        i=inp.nextInt();
+
+                stu[users]=new student();
+                stu[users].get(n, i);
                 users++;
                 break;
 
                 case 2:
-                stuExist();
+                stuExist(stu);
                 break;
 
                 case 3:
@@ -299,15 +275,15 @@ public class Library_Management_System {
         }while(choice!=3);
     }
 
-    static void stuExist(){
+     void stuExist(student [] stu){
 
         System.out.print("Enter Your ID : ");
         int id = inp.nextInt();
 
-        for(s=0;s<owners;s++){
-            if(id==stu[s].id){
+        for(int i=0;i<users;i++){
+            if(id==stu[i].id){
 
-                stuAccess();
+                stuAccess(stu,i);
                 return;
             }
         }
@@ -316,7 +292,7 @@ public class Library_Management_System {
 
     }
 
-    static void stuAccess(){
+    void stuAccess(student [] stu,int index){
 
         System.out.println("\n\nLogin Successfully!");
         int ch;
@@ -329,19 +305,19 @@ public class Library_Management_System {
              switch (ch){
 
                  case 1:
-                 lib.displayBooks();
+                 library.lib.displayBooks();
                  break;
 
                  case 2:
-                 stu[s].issueBook(lib);
+                 stu[index].issueBook(library.lib);
                  break;
 
                  case 3:
-                 stu[s].returnBook(lib);
+                 stu[index].returnBook(library.lib);
                  break;
 
                  case 4:
-                 stu[s].displayIssuedBooks();
+                 stu[index].displayIssuedBooks();
                  break;
 
                  case 5:
@@ -357,4 +333,55 @@ public class Library_Management_System {
          } while (ch!=5);
 
     }
+
+
+}
+
+public class Library_Management_System {
+   
+    public static void main(String[] args) {
+
+        int choice;
+
+        admin adm = new admin();
+
+        student st = new student();
+
+        admin []ad = new admin[15];
+
+        student []stu = new student[15];
+
+        Scanner inp = new Scanner(System.in);
+
+        do{
+            System.out.print("\n1. Admin\n2. Student\n3. Exit\n\nChoice : ");
+            choice=inp.nextInt();
+
+            switch (choice) {
+
+                case 1:
+                adm.admin_(ad);
+                break;
+
+                case 2:
+                st.student_(stu);
+                break;
+
+                case 3:
+                System.out.println("Exitting....");
+                break;
+
+                default:
+                System.out.println("Invalid Choice!");
+
+            }
+
+        }while(choice!=3);
+
+        inp.close();
+
+    }
+
+    
+    
 }

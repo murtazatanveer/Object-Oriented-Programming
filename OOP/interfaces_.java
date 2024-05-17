@@ -12,7 +12,7 @@
 
     boolean isAvailable=true;
 
-    interface owner {
+    interface owner{
 
     void name(String name);
     void age(int age);
@@ -22,7 +22,7 @@
 
 }
 
-interface applications{
+interface applications extends phone{
 
     void socialMedia();
 
@@ -34,7 +34,8 @@ interface applications{
 
 }
 
- class oppo implements phone ,phone.owner, applications {
+
+ class oppo implements applications , phone.owner {
 
 
     float inch,mah,ram,rom,processor;
@@ -102,38 +103,40 @@ public class interfaces_ {
 
     public static void main(String[] args) {
 
-         oppo myMobile = new oppo();
+         oppo myMobile;
 
-        // myMobile.display(5.5f);
+         myMobile = new oppo();
 
-        // myMobile.battery(5000);
+        myMobile.display(5.5f);
 
-        // myMobile.processing(4, 32,2.3f);
+        myMobile.battery(5000);
 
-        // myMobile.colour("Blue");
+        myMobile.processing(4, 32,2.3f);
 
-        // myMobile.dsplaySpecifications();
+        myMobile.colour("Blue");
 
-        // myMobile.socialMedia();
+        myMobile.dsplaySpecifications();
 
-        // myMobile.gamingApplication();
+        myMobile.socialMedia();
+
+        myMobile.gamingApplication();
 
         myMobile.name("Murtaza");
         myMobile.age(21);
         myMobile.address("Jhelum");
 
-        //We take the reference of interface.
-        //But we can access only methods of interface of which we take reference.
-        //We cannot access class methods in which interface is implemented or other interfaces implemeted in that class.
-        //For example
+        // We take the reference of interface.
+        // But we can access only methods of interface of which we take reference.
+        // We cannot access class methods in which interface is implemented or other interfaces implemeted in that class.
+        // For example
 
-        // applications apps = new oppo();
+        applications apps = new oppo();
 
-        // apps.paymentApps();
+        apps.paymentApps();
 
-        // //apps.display(); ERROR!
+        //apps.display(); ERROR!
 
-        // apps.gamingApplication();
+        apps.gamingApplication();
 
         
     }
