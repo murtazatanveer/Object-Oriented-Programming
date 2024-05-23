@@ -16,9 +16,8 @@ public class inheritence2 {
 
 	public static void main(String[] args) {
 
-		A ob = new C();
-		ob.hello();
 		
-		
+	//A ob1 = new B();
+
 	}
 }

@@ -2,6 +2,7 @@
 interface myInterface{
     void greet();
     void print();
+
 }
 
 class A{

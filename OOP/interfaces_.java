@@ -32,6 +32,7 @@ interface applications extends phone{
 
     void gamingApplication();
 
+
 }
 
 
@@ -45,6 +46,8 @@ interface applications extends phone{
     private int rate,age;
 
     String colour;
+
+    
 
     public void display(float inch){this.inch=inch;}
 
