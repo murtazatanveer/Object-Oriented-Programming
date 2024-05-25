@@ -102,7 +102,6 @@ class bankAccount{
 
     void get(bankAccount []users){
 
-
         System.out.print("Enter Name : ");
         users[entries].name=inp.nextLine();
         System.out.print("Enter Your Email : ");
@@ -174,9 +173,7 @@ public class Mid_Lab {
 
         }while(choice!=6);
 
-
-
-
+        inp.close();
     }
 
 }
