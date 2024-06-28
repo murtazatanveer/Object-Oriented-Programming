@@ -1,16 +1,15 @@
 
 import java.time.LocalDate;
-
-import javax.swing.JOptionPane;
+import javax.swing.*;
 public class ageCalculator extends javax.swing.JFrame {
 
     
     public ageCalculator() {
         initComponents();
+        getContentPane().setBackground(java.awt.Color.gray);
+        
     }
 
-    
-    @SuppressWarnings("unchecked")
   
     private void initComponents() {
 
@@ -27,6 +26,7 @@ public class ageCalculator extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); 
         jLabel1.setText("Year");
+        
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); 
         jLabel2.setText("Month");
@@ -41,7 +41,7 @@ public class ageCalculator extends javax.swing.JFrame {
         Month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
 
         Year.setFont(new java.awt.Font("Tahoma", 1, 16)); 
-        Year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024" }));
+        Year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1920","1921","1922","1923","1924","1925","1926","1927","1928","1929","1930","1931","1932","1933","1934","1935","1936","1937","1938","1939","1940","1941","1942","1943","1944","1945","1946","1947","1948","1949","1950", "1951", "1952", "1953", "1954", "1955", "1956", "1957", "1958", "1959", "1960", "1961", "1962", "1963", "1964", "1965", "1966", "1967", "1968", "1969", "1970", "1971", "1972", "1973", "1974", "1975", "1976", "1977", "1978", "1979", "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987", "1988", "1989", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024" }));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 3, 18)); 
         jButton1.setText("Calculate Age");
@@ -103,14 +103,16 @@ public class ageCalculator extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
-         if(Integer.parseInt((String)(Date.getSelectedItem())) == 31 && (Month.getSelectedIndex() == 1 ||Month.getSelectedIndex() == 3 || Month.getSelectedIndex() == 5 || Month.getSelectedIndex() == 8 || Month.getSelectedIndex() == 10)){
-            JOptionPane.showMessageDialog(null, "Invalid Credentials");
-            return;
-        }
+
+        int birth_year = Integer.parseInt((String)Year.getSelectedItem());
+
+        int birth_month = Month.getSelectedIndex()+1;
+
+        int birth_date = Integer.parseInt((String)Date.getSelectedItem());
 
         LocalDate currentDate = LocalDate.now();       
         
@@ -118,16 +120,12 @@ public class ageCalculator extends javax.swing.JFrame {
         int month = currentDate.getMonthValue();
         int year = currentDate.getYear();
 
+        if( ((birth_date == 31) && (birth_month == 2 || birth_month == 4 || birth_month == 6 || birth_month == 9 ||birth_month == 11)) || ((birth_date>=29 && birth_date<=31) && (birth_month==1)) || ((birth_year==2024) &&(birth_month>month) || ((birth_year==2024)&&(birth_month==month && date<birth_date))) ){   
+            JOptionPane.showMessageDialog(null, "Invalid Credentials");
+            return;
+        }
 
-int birth_year = Integer.parseInt((String)Year.getSelectedItem());
-
-int birth_month = Month.getSelectedIndex()+1;
-
-int birth_date = Integer.parseInt((String)Date.getSelectedItem());
-
-
-
-
+ 
 int age_month = 0, age_year = 0, age_Date = 0;
 
 if(month==birth_month && date==birth_date){
@@ -139,18 +137,9 @@ if(month==birth_month && date==birth_date){
 else if(birth_month > month || ((birth_month==month)&&(birth_date>date))){
 
     age_year = (year - birth_year)-1;
-
-if(month<birth_month){
-    age_month = (12-birth_month) + month;
-    age_Date = (int)((float)(30.42-birth_date) - (float)(30.42-date));
-
-}
-
-    else {
-
-        age_month = ((12-birth_month) + month) - 1;
-        age_Date = birth_date-date;
-    }   
+  
+    age_month = birth_month>month && date>=birth_date ? (12-birth_month) + month : ((12-birth_month) + month) - 1;
+    age_Date =  birth_date>date ? 30 - (birth_date-date) : (int)((float)(30.42-birth_date) - (float)(30.42-date));
 }
 
 else{
@@ -196,7 +185,12 @@ t.setText(age_year+" Years , "+age_month+" Months , "+age_Date+" Days");
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ageCalculator().setVisible(true);
+                
+                ageCalculator ob = new ageCalculator();
+                ob.setTitle("Calculate Your Age");
+                ob.setVisible(true);
+                
+                
             }
         });
     }
