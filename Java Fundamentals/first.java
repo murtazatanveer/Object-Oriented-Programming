@@ -10,14 +10,14 @@ public class first {
 
        // Datatypes in Java
 
-       int num =10;
+       int num =9;
        System.out.println(num);
 
        long bigNum = 9999999;
 
        System.err.println(bigNum);
 
-       short smallNum = 100;
+       byte smallNum = 127;
 
        System.err.println(smallNum);
 
