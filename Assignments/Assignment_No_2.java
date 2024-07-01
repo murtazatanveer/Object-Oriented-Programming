@@ -1,29 +1,46 @@
 package Assignments;
 
 import java.util.Scanner;
+import java.io.*;
 
 class LineType{
 
     String line;
 
-    static int entries=0;
+    static int entries=totalLines();
 
     Scanner inp = new Scanner(System.in);
     
     // Option 1 method : Enter Lines of Text
-    void inputLines(LineType [] page){
+    void inputLines(){
+
+        int no=-1;
+
+        try(FileWriter w = new FileWriter("Assignments/lines.txt",true)){
 
         System.out.print("How Many Lines You Want to Enter : ");
-        int no = inp.nextInt();
+        no = inp.nextInt();
         inp.nextLine();
+
+        
         
        for (int i = 1; i <= no; i++) { 
 
         System.out.print("\nEnter Line # "+entries+" (up to max. 80 char) : ");
 
-        page[entries].line = setLine(inp.nextLine());
-        entries++;   
+        w.write(setLine(inp.nextLine())+"\n");
+
+        System.out.println("Line # "+entries+" Added to Record.");
+        entries++;
+
+        } 
+         
        }
+
+       catch (Exception e) {
+        System.out.println(e);
+        no=1;
+    }
 
        System.out.println("\n");
     }
@@ -32,11 +49,13 @@ class LineType{
     // Option 2 method : Retrieve all Lines
     void retriveLines(LineType [] page){
 
+        fetchLines(page);
+
         System.out.println("\nAll Lines are : \n");
 
         for(int i=0;i<entries;i++){
 
-            if(page[i]==null){
+            if(page[i].line==null){
                 continue;
             }
 
@@ -51,18 +70,20 @@ class LineType{
     //Option 3 method : Retrieve a particular line of Text and reverse it.
     void reverseLine(LineType [] page){
 
+        fetchLines(page);
+
         System.out.print("Enter Line number You Want to Reverse (0,1,2....) : ");
         int no = inp.nextInt();
 
-        if(page[no]==null || no>=entries || no<0){
-            System.out.println("Given Line Number No Doesnot Exist in Record");
+        if(page[no].line==null || no>=entries || no<0){
+            System.out.println("Given Line Number No Doesnot Exist in Record\n");
             return;
         }
 
         page[no].line = reverseLine(page[no].line);
-        System.out.println("Line no "+no+" Reversed!");
-
-        System.out.println("\n");
+        updateRecord(page[no].line, no);
+       
+        System.out.println("Line Reversed!\n\n");
 
     }
 
@@ -70,31 +91,33 @@ class LineType{
     //Option 4 method : Delete a particular line of Text.
     void deleteLine(LineType [] page){
 
+        fetchLines(page);
+
         System.out.print("Enter Line number You Want to Delete (0,1,2....) : ");
         int no = inp.nextInt();
 
-        if(page[no]==null || no>=entries || no<0){
+        if(page[no].line==null || no>=entries || no<0){
             System.out.println("Given Line Number Doesnot Exist in Record\n");
             return;
         }
 
-        page[no]=null;
-        System.out.println("Line no "+no+" Deleted!");
-        System.out.println("\n");
-        System.out.println("\n");
-
+        updateRecord("null...", no);
+        System.out.println("\nLine Deleted SuccessFully...\n");
+        
     }
 
 
     //Option 5 method : Retrieve the longest line of Text
     void retriveLongestLine(LineType [] page){
 
-        int max = page[0].line.length();
+        fetchLines(page);
+
+        int max=-1;
         int index=-1;
 
-        for (int i = 0; i < entries; i++) {
+        for (int i = 0; i < entries; i++){
 
-            if(page[i]==null){
+            if(page[i].line==null){
                 continue;
             }
 
@@ -114,11 +137,13 @@ class LineType{
    //Option 6 method : Delete a particular word in a particular line.
    void deleteWord(LineType [] page){
 
+    fetchLines(page);
+
     System.out.print("Enter Line number You Want to Delete Word in it (0,1,2....) : ");
         int no = inp.nextInt();
 
-        if(page[no]==null || no>=entries || no<0){
-            System.out.println("Given Line Number Doesnot Exist in Record");
+        if(page[no].line==null || no>=entries || no<0){
+            System.out.println("Given Line Number Doesnot Exist in Record\n");
             return;
         }
 
@@ -136,6 +161,8 @@ class LineType{
 
         page[no].line=result;
 
+        updateRecord(page[no].line, no);
+
         System.out.println("Word from line no "+no+" Deleted!\n\n");
     
    }
@@ -143,17 +170,19 @@ class LineType{
    //Option 7 method : Delete all those lines which having greater than 50 character
    void deleteLines(LineType [] page){
 
+    fetchLines(page);
+
     boolean noLine=true;
 
     for(int i=0;i<entries;i++){
 
-        if(page[i]==null){
+        if(page[i].line==null){
             continue;
         }
 
         if(page[i].line.length()>50){
             noLine = false;
-            page[i]=null;
+            updateRecord("null...", i);
             System.out.println("Line Number "+i+" Deleted!");
         }
 
@@ -169,10 +198,12 @@ class LineType{
    //Option 8 : Update the contents of particular line of Text 
     void updateLine(LineType [] page){
 
-        System.out.print("Enter Line number You Want to Delete (0,1,2....) : ");
+        fetchLines(page);
+
+        System.out.print("Enter Line number You Want to Update (0,1,2....) : ");
         int no = inp.nextInt();
 
-        if(page[no]==null || no>=entries || no<0){
+        if(page[no].line==null || no>=entries || no<0){
             System.out.println("Given Line Number Doesnot Exist in Record\n");
             return;
         }
@@ -180,6 +211,8 @@ class LineType{
         System.out.print("\nUpdate Line no "+no+" : ");
         inp.nextLine();
         page[no].line = inp.nextLine();
+
+        updateRecord(page[no].line, no);
 
         System.out.println("Line no "+no+" Updated!\n");
 
@@ -255,6 +288,86 @@ class LineType{
     
         }
 
+    private void fetchLines(LineType [] page){
+
+        int i=0;
+        
+        try(BufferedReader read = new BufferedReader(new FileReader("Assignments/lines.txt"))){
+
+            String line;
+
+            while ((line=read.readLine())!=null) {
+            
+                if(!(line.equals("null...")) ){
+                    page[i].line=line;
+                }
+
+                i++;
+
+            }
+
+
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        
+    
+    }
+
+   static int totalLines(){
+
+        int count=0;
+
+        try(BufferedReader read = new BufferedReader(new FileReader("Assignments/lines.txt"))){
+            
+            while (read.readLine()!=null) {
+                count++;
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error : "+e);
+        }
+
+        return count;
+
+    }
+
+    private void updateRecord(String line , int no){
+
+        String str="";
+        int i=0;
+
+        try(BufferedReader r = new BufferedReader( new FileReader("Assignments/lines.txt"))){
+
+            String l="";
+
+            while ( (l = r.readLine())!=null) {
+
+                if(no==i){
+                    str += (line+"\n");
+                }else{
+                    str += (l+"\n");
+                }
+                i++;
+
+            }
+            
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        try(FileWriter w = new FileWriter("Assignments/lines.txt")){   
+
+            w.write(str);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+
+    }
+
 
 }
 
@@ -292,7 +405,7 @@ public class Assignment_No_2 {
 
             switch (choice){
                 case 1:
-                run.inputLines(pages);                    
+                run.inputLines();                    
                 break;
 
                 case 2:

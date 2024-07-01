@@ -8,7 +8,6 @@ class Student {
     String name;
     String regNo;
     int marks;
-    static int entries = 0;
     static Scanner inp = new Scanner(System.in);
 
     Student(String name, String regNo, int marks) {
@@ -32,22 +31,22 @@ class Student {
                 String r = inp.nextLine();
                 System.out.print("Enter Student Marks: ");
                 int m = inp.nextInt();
-                inp.nextLine(); 
+                inp.nextLine(); // Consume newline
 
-                FileWriter w = new FileWriter("File_Handling/demo.txt", true);
-                w.write(n + "\n" + r + "\n" + m + "\n");
-                w.close();
+                try (FileWriter w = new FileWriter("File_Handling/demo.txt", true)) {
+                    w.write(n + "\n" + r + "\n" + m + "\n");
+                }
 
                 flag = false;
-                entries++;
+                
 
             } catch (Exception e) {
-                System.out.println("Error: " + e);
+                System.out.println("Error: " + e.getMessage());
             }
         }
     }
 
-    void fetchRecord(Student[] stu) {
+    int fetchRecord(Student[] stu) {
         try (BufferedReader read = new BufferedReader(new FileReader("File_Handling/demo.txt"))) {
             String name;
             int i = 0;
@@ -61,33 +60,35 @@ class Student {
                 }
                 i++;
             }
+            return i;
 
         } catch (Exception e) {
-            System.out.println("Error: " + e);
+            System.out.println("Error: " + e.getMessage());
         }
+        return 0;
     }
 
     void displayAllRecords(Student[] stu) {
-        fetchRecord(stu);
+        int entries = fetchRecord(stu);
 
         for (int i = 0; i < entries; i++) {
-            if (stu[i] != null) {
-                stu[i].display();
-            }
+            stu[i].display();
         }
     }
 
     void displayStudentRecord(Student[] stu) {
-        fetchRecord(stu);
+        int entries = fetchRecord(stu);
 
         System.out.print("Enter Student Reg No: ");
         String r = inp.nextLine();
 
         for (int i = 0; i < entries; i++) {
-            if (stu[i] != null && stu[i].regNo.equals(r)) {
+            
+            if (stu[i].regNo.equals(r)) {
                 stu[i].display();
                 return;
             }
+        
         }
 
         System.out.println("Registration Number Not Found in Record");
@@ -114,10 +115,10 @@ public class demo {
             try {
                 System.out.print("\nChoice: ");
                 choice = inp.nextInt();
-                inp.nextLine(); // Consume newline
+                inp.nextLine(); 
             } catch (Exception e) {
-                System.out.println("Error: " + e);
-                inp.nextLine(); // Consume invalid input
+                System.out.println("Error: " + e.getMessage());
+                inp.nextLine(); 
                 choice = 4;
             }
 
@@ -144,5 +145,3 @@ public class demo {
         inp.close();
     }
 }
-
-
