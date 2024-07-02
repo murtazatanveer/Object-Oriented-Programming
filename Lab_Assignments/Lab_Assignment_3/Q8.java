@@ -1,4 +1,4 @@
-package Lab_Assignment_3;
+package Lab_Assignments.Lab_Assignment_3;
 
 class employee{
 

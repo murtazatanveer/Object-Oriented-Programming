@@ -105,7 +105,7 @@ public class ageCalculator extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
        
 
         int birth_year = Integer.parseInt((String)Year.getSelectedItem());

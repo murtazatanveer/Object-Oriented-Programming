@@ -1,4 +1,4 @@
-package Lab_Assignment_2;
+//package Lab_Assignment_2;
 
 import java.util.Scanner;
 public class readArray{
