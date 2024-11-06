@@ -1,19 +1,24 @@
 package Projects.Library_Management_System;
 import java.util.Scanner;
 
-class admin{
+class member{
 
-    String name;
-    int id;
+    private String name;
+    private int id;
 
-    Scanner inp = new Scanner(System.in);
-    static int owners=0; 
-
-    void get(String name , int id){
+    void set(String name , int id){
         this.name = name;
         this.id = id;
     }
 
+    int getId(){return id;}
+
+    String getName(){return name;}
+}
+class admin extends member{
+ 
+    Scanner inp = new Scanner(System.in);
+    static int owners=0; 
 
      void admin_(admin [] ad){
 
@@ -38,7 +43,7 @@ class admin{
         i=inp.nextInt();
 
                 ad[owners]=new admin();
-                ad[owners].get(n, i);
+                ad[owners].set(n, i);
                 owners++;
                 break;
 
@@ -65,7 +70,7 @@ class admin{
         int i;
 
         for(i=0;i<owners;i++){
-            if(id==ad[i].id){
+            if(id==ad[i].getId()){
 
                 adAccess();
                 return;
@@ -113,7 +118,7 @@ class admin{
 class library{
 
     Scanner inp = new Scanner(System.in);
-    String [] books=new String[30];
+     String [] books=new String[30];
     int []booksId=new int[30];
     int totalBooks = 0;
 
@@ -146,24 +151,15 @@ class library{
 
 }
 
-class student{
+class student extends member{
 
-    String name;
-    int id;
     String []books = new String[30];
     int totalBooks=0;
 
 
     Scanner inp = new Scanner(System.in);
     static int users=0;
-    
-
-    void get(String name , int id){
-
-        this.name=name;
-        this.id=id;
-
-    }
+   
 
     void issueBook(library lib){
 
@@ -254,7 +250,7 @@ class student{
         i=inp.nextInt();
 
                 stu[users]=new student();
-                stu[users].get(n, i);
+                stu[users].set(n, i);
                 users++;
                 break;
 
@@ -281,7 +277,7 @@ class student{
         int id = inp.nextInt();
 
         for(int i=0;i<users;i++){
-            if(id==stu[i].id){
+            if(id==stu[i].getId()){
 
                 stuAccess(stu,i);
                 return;
